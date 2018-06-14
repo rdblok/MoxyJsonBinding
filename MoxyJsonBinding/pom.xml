@@ -16,9 +16,24 @@
     
     <dependencies>
         <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>wlthint3client</artifactId>
+            <version>12.2.1.3.0</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.toplink</groupId>
+            <artifactId>eclipselink</artifactId>
+            <version>12.1.3-0-0</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
+            <type>jar</type>
             <scope>provided</scope>
         </dependency>
     </dependencies>
