@@ -1,5 +1,6 @@
 package org.example.service;
 
+import java.time.LocalDate;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ws.rs.GET;
@@ -26,6 +27,7 @@ public class CustomerResource {
         customer.setIdentifier(id);
         customer.setFirstName("Jane");
         customer.setLastName(null);
+        customer.setCallDate(LocalDate.now());
          
         PhoneNumber pn = new PhoneNumber();
         pn.setType("work");

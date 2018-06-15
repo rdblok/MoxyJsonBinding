@@ -1,5 +1,6 @@
 package org.example.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,19 +14,22 @@ import org.eclipse.persistence.oxm.annotations.XmlPath;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Customer {
- 
-    @XmlAttribute(name="id")
+
+    @XmlAttribute(name = "id")
     private int identifier;
-    
+
     @XmlPath("personalInfo/firstName/text()")
     private String firstName;
-     
+
     @XmlPath("personalInfo/lastName/text()")
-    @XmlElement(nillable=true)
+//    @XmlElement(nillable=true)
     private String lastName;
- 
+
+    @XmlAttribute(name = "adapterDate")
+    private LocalDate callDate;
+
     @XmlElementWrapper
-    @XmlElement(name="phoneNumber")
+    @XmlElement(name = "phoneNumber")
     private List<PhoneNumber> phoneNumbers = null;
 
     public int getIdentifier() {
@@ -52,9 +56,16 @@ public class Customer {
         this.lastName = lastName;
     }
 
+    public LocalDate getCallDate() {
+        return callDate;
+    }
+
+    public void setCallDate(LocalDate callDate) {
+        this.callDate = callDate;
+    }
+
     public List<PhoneNumber> getPhoneNumbers() {
-        if (phoneNumbers == null)
-        {
+        if (phoneNumbers == null) {
             phoneNumbers = new ArrayList<PhoneNumber>();
         }
         return phoneNumbers;
@@ -63,5 +74,5 @@ public class Customer {
     public void setPhoneNumbers(List<PhoneNumber> phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
     }
- 
+
 }
